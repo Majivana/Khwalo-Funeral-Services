@@ -1,7 +1,7 @@
 /* Global Variables */
 :root {
-    --royal-red: #c00000;
-    --royal-red-dark: #8b0000;
+    --royal-red: #C00000;
+    --royal-red-dark: #8B0000;
     --white: #ffffff;
     --black: #000000;
     --gray-light: #f8f9fa;
@@ -24,45 +24,6 @@ body {
     color: var(--gray-dark);
     overflow-x: hidden;
     padding-top: 80px;
-    background-color: #ffffff;
-}
-/* Preloader */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-}
-
-.preloader.fade-out {
-    opacity: 0;
-}
-
-.preloader-logo img {
-    max-width: 160px;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-.preloader-spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid rgba(192, 0, 0, 0.2);
-    border-top-color: #C00000;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
 }
 
 /* Floating Navbar */
@@ -491,6 +452,36 @@ body {
     z-index: 1;
 }
 
+.text-royal-red {
+  color: var(--royal-red) !important;
+}
+
+/* Royal Red Outline Button */
+.btn-outline-royal-red {
+  color: var(--royal-red);
+  border: 1.5px solid var(--royal-red);
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-royal-red:hover,
+.btn-outline-royal-red:focus {
+  background-color: var(--royal-red);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+
+
+/* Branch Card Hover Accent */
+.branch-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.branch-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(192, 0, 0, 0.2);
+}
 /* Royal Red Badge */
 .badge-royal-red {
     background-color: var(--royal-red);
@@ -616,7 +607,6 @@ body {
     color: var(--black);
 }
 
-
 /* Payments Section */
 .payments-section {
     background-color: #555;
@@ -649,194 +639,124 @@ body {
 }
 
 /* Royal Red Theme */
+:root {
+  --royal-red: #a51c30;
+  --dark-red: #8b0000;
+  --light-red: #d84a5e;
+}
+
 .bg-royal-red {
-    background: linear-gradient(135deg, var(--royal-red) 0%, var(--royal-red-dark) 100%);
-    color: white;
-    position: relative;
-    overflow: hidden;
+  background: linear-gradient(135deg, var(--royal-red) 0%, var(--dark-red) 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
 }
 
-.testimonials-section .badge {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: white;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    letter-spacing: 0.5px;
+/* Carousel1 Container */
+.Carousel1 {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
-.testimonials-section h2,
-.testimonials-section .lead {
-    color: white;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+/* Slides Container */
+.Carousel1-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-/* View All Reviews Button */
-.testimonials-section .btn-outline-light {
-    border-color: rgba(255, 255, 255, 0.4);
-    color: white;
-    transition: all 0.3s ease;
-    font-weight: 500;
+/* Each Slide */
+.Carousel1-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  pointer-events: none; /* prevent accidental clicks on hidden slides */
 }
 
-.testimonials-section .btn-outline-light:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: white;
-    color: white;
+.Carousel1-item.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
 }
 
-/* Carousel Controls */
-.testimonials-section .carousel-control-prev,
-.testimonials-section .carousel-control-next {
-    width: 44px;
-    height: 44px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.9;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+/* Controls */
+.Carousel1-control-prev,
+.Carousel1-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
 }
 
-.testimonials-section .carousel-control-prev:hover,
-.testimonials-section .carousel-control-next:hover {
-    opacity: 1;
-    background: rgba(0, 0, 0, 0.5);
+.Carousel1-control-prev:hover,
+.Carousel1-control-next:hover {
+  background: rgba(255, 255, 255, 0.6);
 }
 
-.testimonials-section .carousel-control-prev::before,
-.testimonials-section .carousel-control-next::before {
-    content: "";
-    display: block;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid white;
-    border-left: 2px solid white;
+.Carousel1-control-prev {
+  left: 1rem;
 }
 
-.testimonials-section .carousel-control-prev::before {
-    transform: rotate(-45deg);
-    margin-left: -2px;
+.Carousel1-control-next {
+  right: 1rem;
 }
 
-.testimonials-section .carousel-control-next::before {
-    transform: rotate(135deg);
-    margin-right: -2px;
+.Carousel1-control-prev-icon,
+.Carousel1-control-next-icon {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: auto;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: invert(1);
+}
+
+.Carousel1-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M11 1L3 8l8 7'/%3E%3C/svg%3E");
+}
+
+.Carousel1-control-next-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M5 1l8 7-8 7'/%3E%3C/svg%3E");
 }
 
 /* Indicators */
-.testimonials-section .carousel-indicators {
-    margin-top: 2rem !important;
+.Carousel1-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
-.testimonials-section .carousel-indicators button {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    transition: background-color 0.3s;
+.Carousel1-indicators button {
+  width: 10px;
+  height: 10px;
+  margin: 0 6px;
+  border-radius: 50%;
+  border: none;
+  background-color: #fff;
+  opacity: 0.6;
+  transition: all 0.3s ease;
 }
 
-.testimonials-section .carousel-indicators button.active {
-    background-color: white;
+.Carousel1-indicators button.active {
+  background-color: #ffd700;
+  opacity: 1;
+  transform: scale(1.2);
 }
 
-/* Card Styling */
-.testimonials-section .card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 16px;
-    padding: 1.75rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-    min-height: 100%;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards;
-}
 
-.testimonials-section .card.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.testimonials-section .card.animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.testimonials-section .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-.testimonials-section blockquote {
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #f8f9fa;
-    font-size: 1.1rem;
-    margin: 0;
-    padding: 0.5rem 0;
-}
-
-.testimonials-section .quote-icon i {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 1.8rem;
-    margin-bottom: 0.75rem;
-}
-
-.testimonials-section .star-rating i {
-    font-size: 1.1rem;
-}
-
-.testimonials-section .card h6 {
-    font-weight: 600;
-    margin-top: 0.75rem;
-    color: white;
-    font-size: 1.1rem;
-}
-
-.testimonials-section .card small {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    display: block;
-    margin-top: 0.25rem;
-}
-
-/* Animation Keyframes */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .testimonials-section .card {
-        padding: 1.25rem;
-        border-radius: 12px;
-    }
-    
-    .testimonials-section .carousel-control-prev,
-    .testimonials-section .carousel-control-next {
-        width: 36px;
-        height: 36px;
-    }
-}
 
 /* Branches Section */
 .branches-section {
@@ -959,34 +879,6 @@ body {
     background-color: #128C7E;
 }
 
-/* Back to Top Button */
-.back-to-top {
-    position: fixed;
-    bottom: 100px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--royal-red);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    box-shadow: var(--shadow-strong);
-    z-index: 999;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.back-to-top.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Footer */
 .footer-logo-img {
     max-height: 70px;
@@ -1067,19 +959,35 @@ body {
     line-height: 1.6;
 }
 
-/* Scroll Reveals */
-.reveal-on-scroll {
+/* Back to Top Button (Optional) */
+.back-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--royal-red);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: var(--shadow-strong);
+    z-index: 999;
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.reveal-on-scroll.visible {
+.back-to-top.show {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Mobile Responsiveness */
+/* Responsive Design */
 @media (max-width: 992px) {
     .carousel-content h1 {
         font-size: 2.8rem;
@@ -1207,211 +1115,5 @@ body {
     
     .section-title::after {
         width: 30px;
-    }
-}
-
-/* Accessibility Enhancements */
-.keyboard-nav *:focus {
-    outline: 2px solid var(--royal-red) !important;
-    outline-offset: 2px !important;
-}
-
-/* Improved Form Styling */
-.form-control {
-    border-radius: 8px;
-    border: 1px solid #ced4da;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-control:focus {
-    border-color: var(--royal-red);
-    box-shadow: 0 0 0 0.25rem rgba(192, 0, 0, 0.25);
-}
-
-.btn {
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background-color: var(--royal-red);
-    border-color: var(--royal-red);
-}
-
-.btn-primary:hover {
-    background-color: #a00000;
-    border-color: #a00000;
-}
-
-.btn-outline-light {
-    border-color: rgba(255, 255, 255, 0.4);
-    color: white;
-}
-
-.btn-outline-light:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: white;
-    color: white;
-}
-
-/* Enhanced Testimonial Styling */
-.testimonial-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 16px;
-    padding: 1.75rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-    min-height: 100%;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-.testimonial-content {
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #f8f9fa;
-    font-size: 1.1rem;
-    margin: 0;
-    padding: 0.5rem 0;
-}
-
-.testimonial-author {
-    font-weight: 600;
-    margin-top: 0.75rem;
-    color: white;
-    font-size: 1.1rem;
-}
-
-.testimonial-location {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    display: block;
-    margin-top: 0.25rem;
-}
-
-/* Enhanced Branch Card Styling */
-.branch-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.branch-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.branch-card img {
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.branch-card h5 {
-    font-weight: 700;
-    margin-top: 15px;
-}
-
-.branch-card p {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 10px 0;
-}
-
-/* Enhanced Contact Section Styling */
-.contact-info {
-    padding-right: 30px;
-}
-
-.contact-info h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
-}
-
-.contact-info p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-}
-
-.contact-methods .contact-icon {
-    color: var(--royal-red);
-}
-
-.contact-methods h5 {
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.contact-methods p {
-    margin: 0;
-    font-size: 0.95rem;
-}
-
-.contact-methods .text-muted {
-    font-size: 0.9rem;
-}
-
-.contact-form {
-    background: #343a40;
-    border-radius: 12px;
-    padding: 2rem;
-}
-
-.contact-form h4 {
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-}
-
-/* Improved Map Styling */
-.map-container {
-    height: 450px;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.map-container iframe {
-    border: none;
-    width: 100%;
-    height: 100%;
-}
-
-/* Responsive Adjustments for Smaller Screens */
-@media (max-width: 768px) {
-    .contact-info {
-        padding-right: 0;
-        margin-bottom: 2rem;
-    }
-    
-    .contact-form {
-        padding: 1.5rem;
-    }
-    
-    .branch-card img {
-        height: 150px;
-    }
-    
-    .testimonials-section .card {
-        padding: 1.25rem;
-        border-radius: 12px;
-    }
-    
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: 36px;
-        height: 36px;
     }
 }
